@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Contact Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Airbnb Contact Finder</h1>
+            <p class="subtitle">Ethisch contactgegevens verzamelen van Airbnb-verhuurders</p>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <div class="card">
+                    <h2>Zoek contactgegevens</h2>
+                    <p>Voer één van de volgende gegevens in:</p>
+                    <ul>
+                        <li>Naam van het vakantieverblijf (bijv. "Casa Azul Portugal")</li>
+                        <li>URL van een Airbnb-pagina</li>
+                        <li>Locatie + naam host (bijv. "Algarve, Maria Santos")</li>
+                    </ul>
+
+                    {% if error %}
+                    <div class="error-message">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+
+                    <form action="{{ url_for('search') }}" method="post" class="search-form">
+                        <div class="form-group">
+                            <input type="text" name="query" id="query" placeholder="Bijv. Casa Azul Portugal" required>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Zoeken</button>
+                    </form>
+                </div>
+            </section>
+
+            {% if recent_searches %}
+            <section class="recent-searches">
+                <div class="card">
+                    <h2>Recente zoekopdrachten</h2>
+                    <ul class="search-list">
+                        {% for search in recent_searches %}
+                        <li>
+                            <div class="search-item">
+                                <div class="search-info">
+                                    <strong>{{ search.query }}</strong>
+                                    <span class="search-time">{{ search.timestamp }}</span>
+                                </div>
+                                <div class="search-results">
+                                    <span class="result-tag {% if search.has_email %}found{% else %}not-found{% endif %}">
+                                        Email: {% if search.has_email %}✓{% else %}✗{% endif %}
+                                    </span>
+                                    <span class="result-tag {% if search.has_social %}found{% else %}not-found{% endif %}">
+                                        Social: {% if search.has_social %}✓{% else %}✗{% endif %}
+                                    </span>
+                                    <span class="result-tag {% if search.has_website %}found{% else %}not-found{% endif %}">
+                                        Website: {% if search.has_website %}✓{% else %}✗{% endif %}
+                                    </span>
+                                </div>
+                                <div class="search-actions">
+                                    <a href="{{ url_for('download', filename=search.report_file) }}" class="btn small-btn">Rapport</a>
+                                    <a href="{{ url_for('download', filename=search.json_file) }}" class="btn small-btn">JSON</a>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            {% endif %}
+
+            <section class="info-section">
+                <div class="card">
+                    <h2>Over deze tool</h2>
+                    <p>Deze tool helpt vrijwilligers bij het ethisch verzamelen van contactgegevens van Airbnb-verhuurders, met respect voor privacy en wettelijke richtlijnen (zoals de AVG/GDPR).</p>
+                    
+                    <h3>Wat deze tool WEL doet:</h3>
+                    <ul>
+                        <li>Zoekt naar officiële websites van vakantieverblijven</li>
+                        <li>Vindt openbaar beschikbare e-mailadressen en contactformulieren</li>
+                        <li>Zoekt naar sociale media-profielen (Instagram, Facebook)</li>
+                        <li>Genereert ethische rapporten met bronvermelding</li>
+                    </ul>
+
+                    <h3>Wat deze tool NIET doet:</h3>
+                    <ul>
+                        <li>Verzamelt GEEN informatie van Airbnb.com zelf</li>
+                        <li>Voert GEEN scraping uit van Airbnb-listingpagina's</li>
+                        <li>Probeert GEEN e-mailadressen te raden</li>
+                        <li>Neemt NOOIT zelf contact op met verhuurders</li>
+                    </ul>
+
+                    <p><a href="{{ url_for('about') }}" class="text-link">Meer informatie</a> | <a href="{{ url_for('privacy') }}" class="text-link">Privacybeleid</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Airbnb Contact Finder | Ethisch ontwikkeld voor vrijwilligers</p>
+        </footer>
+    </div>
+</body>
+</html>

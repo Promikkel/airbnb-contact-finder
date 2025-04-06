@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacybeleid - Airbnb Contact Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Airbnb Contact Finder</h1>
+            <p class="subtitle">Ethisch contactgegevens verzamelen van Airbnb-verhuurders</p>
+        </header>
+
+        <main>
+            <section class="privacy-section">
+                <div class="card">
+                    <div class="page-header">
+                        <h2>Privacybeleid</h2>
+                        <a href="{{ url_for('index') }}" class="btn secondary-btn">Terug naar zoeken</a>
+                    </div>
+
+                    <div class="privacy-content">
+                        <h3>Inleiding</h3>
+                        <p>Dit privacybeleid beschrijft hoe de Airbnb Contact Finder Agent omgaat met gegevens en privacy. We hechten grote waarde aan ethisch handelen en het respecteren van privacyregels zoals de AVG/GDPR.</p>
+
+                        <h3>Verzamelde gegevens</h3>
+                        <p>De Airbnb Contact Finder Agent verzamelt alleen de volgende gegevens:</p>
+                        <ul>
+                            <li>Zoekopdrachten die door gebruikers worden ingevoerd</li>
+                            <li>Openbaar beschikbare contactgegevens van vakantieverblijven</li>
+                            <li>Bronnen waaruit deze contactgegevens zijn verkregen</li>
+                        </ul>
+                        <p><strong>Belangrijk:</strong> De tool verzamelt alleen contactgegevens die verhuurders zelf openbaar hebben gemaakt via:</p>
+                        <ul>
+                            <li>Officiële websites gekoppeld aan het vakantieverblijf</li>
+                            <li>Openbare social media-profielen (bijv. Instagram, Facebook)</li>
+                            <li>Contactformulieren of e-mailadressen die zichtbaar zijn op eigen websites</li>
+                            <li>Publieke bedrijfsprofielen (zoals op Google Maps)</li>
+                        </ul>
+
+                        <h3>AVG/GDPR-naleving</h3>
+                        <p>Deze tool is ontworpen met AVG/GDPR-naleving in gedachten:</p>
+                        <ul>
+                            <li>Verzamelt alleen openbaar beschikbare informatie</li>
+                            <li>Documenteert de bron van alle verzamelde informatie</li>
+                            <li>Biedt een ethisch rapport waarin wordt uitgelegd waarom het contact veilig te gebruiken is</li>
+                            <li>Verwerkt geen persoonsgegevens buiten de directe zoekopdracht</li>
+                        </ul>
+
+                        <h3>Gegevensopslag</h3>
+                        <p>Zoekresultaten worden opgeslagen in de vorm van rapporten en JSON-bestanden. Deze worden alleen gebruikt voor:</p>
+                        <ul>
+                            <li>Het tonen van zoekresultaten aan de gebruiker die de zoekopdracht heeft uitgevoerd</li>
+                            <li>Het bieden van downloadmogelijkheden voor deze resultaten</li>
+                            <li>Het tonen van recente zoekopdrachten (zonder persoonsgegevens van de gebruiker)</li>
+                        </ul>
+
+                        <h3>Verantwoord gebruik</h3>
+                        <p>Bij het gebruik van contactgegevens die door deze tool zijn gevonden, adviseren wij:</p>
+                        <ul>
+                            <li>Respecteer het doel waarvoor de informatie is gedeeld</li>
+                            <li>Identificeer jezelf duidelijk bij het maken van contact</li>
+                            <li>Bied opt-out-opties in elke communicatie</li>
+                            <li>Deel of verkoop de contactgegevens niet aan derden</li>
+                            <li>Verwijder de informatie wanneer deze niet meer nodig is</li>
+                        </ul>
+
+                        <h3>Disclaimer</h3>
+                        <p>Deze tool is alleen bedoeld voor ethisch gebruik. Gebruikers zijn verantwoordelijk voor het waarborgen dat hun gebruik van verzamelde informatie voldoet aan de toepasselijke wet- en regelgeving.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Airbnb Contact Finder | Ethisch ontwikkeld voor vrijwilligers</p>
+            <p><a href="{{ url_for('index') }}" class="footer-link">Home</a> | <a href="{{ url_for('about') }}" class="footer-link">Over</a> | <a href="{{ url_for('privacy') }}" class="footer-link">Privacy</a></p>
+        </footer>
+    </div>
+</body>
+</html>

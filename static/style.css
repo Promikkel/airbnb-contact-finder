@@ -1,0 +1,392 @@
+/* 
+ * Airbnb Contact Finder - Main Stylesheet
+ * This stylesheet provides styling for the Airbnb Contact Finder web application
+ */
+
+/* Base styles and variables */
+:root {
+    --primary-color: #ff5a5f;
+    --secondary-color: #00a699;
+    --dark-color: #484848;
+    --light-color: #f7f7f7;
+    --success-color: #008489;
+    --warning-color: #ffb400;
+    --error-color: #ff5a5f;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--dark-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    opacity: 0.8;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    text-decoration: none;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #e04c51;
+    color: white;
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #008f85;
+    color: white;
+}
+
+.small-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.search-form {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: rgba(255, 90, 95, 0.1);
+    border-radius: var(--border-radius);
+}
+
+/* Search Section */
+.search-section {
+    margin-bottom: 2rem;
+}
+
+/* Recent Searches */
+.recent-searches {
+    margin-bottom: 2rem;
+}
+
+.search-list {
+    list-style: none;
+    padding: 0;
+}
+
+.search-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.search-item:last-child {
+    border-bottom: none;
+}
+
+.search-info {
+    flex: 2;
+}
+
+.search-time {
+    font-size: 0.8rem;
+    color: #888;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.search-results {
+    flex: 2;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-actions {
+    flex: 1;
+    text-align: right;
+}
+
+.result-tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.found {
+    background-color: rgba(0, 166, 153, 0.1);
+    color: var(--success-color);
+}
+
+.not-found {
+    background-color: rgba(255, 90, 95, 0.1);
+    color: var(--error-color);
+}
+
+/* Results Page */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.results-summary {
+    margin-bottom: 2rem;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.summary-item {
+    margin-bottom: 0.5rem;
+}
+
+.summary-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.inline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inline-list li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.ethical-report {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(0, 166, 153, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.ethical-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ethical-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ethical-list li:last-child {
+    border-bottom: none;
+}
+
+.download-options {
+    margin-bottom: 1rem;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.markdown-content {
+    line-height: 1.8;
+}
+
+/* About and Privacy Pages */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.about-content, .privacy-content {
+    line-height: 1.8;
+}
+
+.about-content h3, .privacy-content h3 {
+    margin-top: 1.5rem;
+}
+
+.about-content ul, .privacy-content ul {
+    margin-bottom: 1.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    color: #888;
+}
+
+.footer-link {
+    color: #888;
+    margin: 0 0.5rem;
+}
+
+.footer-link:hover {
+    color: var(--primary-color);
+}
+
+/* Text links */
+.text-link {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.text-link:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .search-results, .search-actions {
+        margin-top: 0.5rem;
+    }
+    
+    .search-actions {
+        align-self: flex-start;
+    }
+    
+    .results-header, .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .results-header .btn, .page-header .btn {
+        margin-top: 1rem;
+    }
+    
+    .download-buttons {
+        flex-direction: column;
+    }
+}

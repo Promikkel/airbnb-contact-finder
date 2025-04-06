@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoekresultaten - Airbnb Contact Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Airbnb Contact Finder</h1>
+            <p class="subtitle">Ethisch contactgegevens verzamelen van Airbnb-verhuurders</p>
+        </header>
+
+        <main>
+            <section class="results-section">
+                <div class="card">
+                    <div class="results-header">
+                        <h2>Zoekresultaten voor "{{ query }}"</h2>
+                        <a href="{{ url_for('index') }}" class="btn secondary-btn">Nieuwe zoekopdracht</a>
+                    </div>
+
+                    <div class="results-summary">
+                        <h3>Samenvatting</h3>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <span class="summary-label">Officiële website:</span>
+                                <span class="summary-value">
+                                    {% if results.official_website %}
+                                    <a href="{{ results.official_website }}" target="_blank" class="text-link">{{ results.official_website }}</a>
+                                    {% else %}
+                                    Niet gevonden
+                                    {% endif %}
+                                </span>
+                            </div>
+                            
+                            <div class="summary-item">
+                                <span class="summary-label">E-mailadressen:</span>
+                                <span class="summary-value">
+                                    {% if results.email_addresses %}
+                                    <ul class="inline-list">
+                                        {% for email in results.email_addresses %}
+                                        <li>{{ email }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% else %}
+                                    Niet gevonden
+                                    {% endif %}
+                                </span>
+                            </div>
+                            
+                            <div class="summary-item">
+                                <span class="summary-label">Social media:</span>
+                                <span class="summary-value">
+                                    {% if results.social_media %}
+                                    <ul class="inline-list">
+                                        {% for sm in results.social_media %}
+                                        <li>
+                                            <a href="{{ sm.url }}" target="_blank" class="text-link">{{ sm.platform|capitalize }}</a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% else %}
+                                    Niet gevonden
+                                    {% endif %}
+                                </span>
+                            </div>
+                            
+                            <div class="summary-item">
+                                <span class="summary-label">Contactformulier:</span>
+                                <span class="summary-value">
+                                    {% if results.contact_form %}
+                                    <a href="{{ results.contact_form }}" target="_blank" class="text-link">Beschikbaar</a>
+                                    {% else %}
+                                    Niet gevonden
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ethical-report">
+                        <h3>Ethisch rapport</h3>
+                        <ul class="ethical-list">
+                            {% for point in results.ethical_report %}
+                            <li>{{ point }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="download-options">
+                        <h3>Download resultaten</h3>
+                        <div class="download-buttons">
+                            <a href="{{ url_for('download', filename=report_file) }}" class="btn primary-btn">Download rapport (Markdown)</a>
+                            <a href="{{ url_for('download', filename=json_file) }}" class="btn secondary-btn">Download JSON</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="full-report">
+                <div class="card">
+                    <h3>Volledig rapport</h3>
+                    <div class="markdown-content">
+                        {{ report|safe|replace('\n', '<br>')|replace('# ', '<h2>')|replace('## ', '<h3>')|replace('### ', '<h4>')|replace('\n\n', '<br><br>') }}
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Airbnb Contact Finder | Ethisch ontwikkeld voor vrijwilligers</p>
+        </footer>
+    </div>
+</body>
+</html>

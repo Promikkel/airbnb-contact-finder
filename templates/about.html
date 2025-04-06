@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over deze tool - Airbnb Contact Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Airbnb Contact Finder</h1>
+            <p class="subtitle">Ethisch contactgegevens verzamelen van Airbnb-verhuurders</p>
+        </header>
+
+        <main>
+            <section class="about-section">
+                <div class="card">
+                    <div class="page-header">
+                        <h2>Over deze tool</h2>
+                        <a href="{{ url_for('index') }}" class="btn secondary-btn">Terug naar zoeken</a>
+                    </div>
+
+                    <div class="about-content">
+                        <h3>Doel en functionaliteit</h3>
+                        <p>De Airbnb Contact Finder Agent is een tool ontworpen om vrijwilligers te helpen bij het ethisch verzamelen van contactgegevens van Airbnb-verhuurders uit <strong>openbare bronnen</strong>. Deze tool respecteert privacyregels zoals de AVG/GDPR en verzamelt alleen informatie die verhuurders zelf openbaar hebben gemaakt.</p>
+
+                        <h3>Ethische richtlijnen</h3>
+                        <p>Deze tool volgt strikte ethische richtlijnen:</p>
+                        <ul>
+                            <li>Verzamelt alleen informatie uit openbare bronnen die de verhuurder zelf vrijwillig heeft gedeeld</li>
+                            <li>Verzamelt GEEN informatie van Airbnb.com zelf</li>
+                            <li>Probeert GEEN niet-openbare e-mailadressen te raden of af te leiden</li>
+                            <li>Voorziet elk zoekresultaat van een ethisch rapport met bronvermelding</li>
+                            <li>Respecteert privacywetten en -regelgeving, waaronder de AVG/GDPR</li>
+                        </ul>
+
+                        <h3>Functionaliteiten</h3>
+                        <ul>
+                            <li>Zoeken naar officiële websites van vakantieverblijven</li>
+                            <li>Vinden van openbaar beschikbare e-mailadressen en contactformulieren</li>
+                            <li>Zoeken naar sociale media-profielen (Instagram, Facebook) gekoppeld aan het verblijf</li>
+                            <li>Genereren van uitgebreide rapporten met ethische overwegingen</li>
+                            <li>Ondersteuning voor verschillende invoertypen (naam verblijf, Airbnb URL, locatie + hostnaam)</li>
+                        </ul>
+
+                        <h3>Hoe het werkt</h3>
+                        <p>De tool werkt in drie stappen:</p>
+                        <ol>
+                            <li>Zoeken naar een officiële website van het vakantieverblijf via Google of Bing</li>
+                            <li>Controleren of er een e-mailadres of contactformulier op de website staat</li>
+                            <li>Zoeken naar sociale media-profielen op Instagram of Facebook</li>
+                        </ol>
+                        <p>Alle gevonden contactgegevens worden verzameld in een overzichtelijk rapport, samen met een ethische verantwoording die aangeeft waarom deze contactgegevens veilig te gebruiken zijn.</p>
+
+                        <h3>Verantwoord gebruik</h3>
+                        <p>Bij het gebruik van contactgegevens die door deze tool zijn gevonden:</p>
+                        <ul>
+                            <li>Respecteer het doel waarvoor de informatie is gedeeld</li>
+                            <li>Identificeer jezelf duidelijk bij het maken van contact</li>
+                            <li>Bied opt-out-opties in elke communicatie</li>
+                            <li>Deel of verkoop de contactgegevens niet aan derden</li>
+                            <li>Verwijder de informatie wanneer deze niet meer nodig is</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Airbnb Contact Finder | Ethisch ontwikkeld voor vrijwilligers</p>
+            <p><a href="{{ url_for('index') }}" class="footer-link">Home</a> | <a href="{{ url_for('about') }}" class="footer-link">Over</a> | <a href="{{ url_for('privacy') }}" class="footer-link">Privacy</a></p>
+        </footer>
+    </div>
+</body>
+</html>
